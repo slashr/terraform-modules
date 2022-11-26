@@ -39,6 +39,7 @@ configs:
       name: app-manifests
       type: git
 
+server:
   ingress:
     enabled: true
     annotations:
@@ -61,3 +62,11 @@ configs:
       - secretName: argocd-tls 
         hosts:
           - "argo.akashnair.com"
+
+  certificate:
+    # -- Deploy a Certificate resource (requires cert-manager)
+    enabled: true
+    # -- The name of the Secret that will be automatically created and managed by this Certificate resource
+    secretName: argocd-tls
+    # -- Certificate primary domain (commonName)
+    domain: argo.akashnair.com
