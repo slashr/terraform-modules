@@ -38,3 +38,26 @@ configs:
       url: https://github.com/slashr/app-manifests.git
       name: app-manifests
       type: git
+
+  ingress:
+    enabled: true
+    annotations:
+    # This lets cert-manager identify which Ingresses to generate a cert for
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+    ingressClassName: "nginx"
+
+    # -- List of ingress hosts
+    ## Argo Ingress.
+    ## Hostnames must be provided if Ingress is enabled.
+    ## Secrets must be manually created in the namespace
+    hosts:
+      - "argo.akashnair.com"
+
+    # -- List of ingress paths
+    paths:
+      - /
+    pathType: Prefix
+    tls:
+      - secretName: argocd-tls 
+         hosts:
+           - "argo.akashnair.com"
