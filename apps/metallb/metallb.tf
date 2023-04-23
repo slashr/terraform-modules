@@ -9,7 +9,7 @@ resource "helm_release" "metallb" {
   namespace  = "metallb"
   repository = "https://metallb.github.io/metallb"
   chart      = "metallb"
-  version    = "~0.12.1"
+  version    = "~0.13.9"
   values = [templatefile("${path.module}/values.yaml",{})]
 
   depends_on = [
