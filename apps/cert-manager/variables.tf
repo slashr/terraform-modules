@@ -7,7 +7,7 @@ variable "namespace" {
 variable "chart_version" {
   description = "The chart version to install. (Should match the cert-manager crd release version.)"
   type        = string
-  default     = "1.8.0"
+  default     = "1.12.3"
 }
 
 variable "timeout" {
