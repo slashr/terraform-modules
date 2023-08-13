@@ -9,13 +9,13 @@ resource "helm_release" "argo-cd" {
   namespace  = "argo-cd"
   repository = "https://argoproj.github.io/argo-helm"
   chart      = "argo-cd"
-  version    = "5.6.0"
+  version    = "5.43.3"
 
   values = [templatefile("${path.module}/values.yaml",{})]
 
   depends_on = [
     resource.kubernetes_namespace.argo-cd
-  ] 
+  ]
 }
 
 resource "helm_release" "argo-cd-apps" {
@@ -23,7 +23,7 @@ resource "helm_release" "argo-cd-apps" {
   namespace  = "argo-cd"
   repository = "https://argoproj.github.io/argo-helm"
   chart      = "argocd-apps"
-  version    = "0.0.3"
+  version    = "1.4.1"
 
   values = [templatefile("${path.module}/argo-cd-apps-values.yaml",{})]
 
