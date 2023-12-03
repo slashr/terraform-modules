@@ -27,6 +27,11 @@ repoServer:
     minReplicas: 1
 
 configs:
+  params:
+    # Disable TLS termination on ArgoCD server
+    # TLS is handled by the Ingress controller
+    # If enabled, this leads to endless redirect loop.
+    server.insecure: false
   secret:
     argocdServerAdminPassword: $2a$10$6Oa1o/Y/5xjDk2dQCQ8F9uDCqm9w8BJEp7ZjI0.SvmZqIXXpHFyQW
   repositories:
