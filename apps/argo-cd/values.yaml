@@ -13,7 +13,20 @@ dex:
   enabled: false
 
 redis:
-  enabled: false
+  # -- Enable redis
+  enabled: true
+  # -- Redis name
+  name: redis
+
+  ## Redis image
+  image:
+    # -- Redis repository
+    repository: public.ecr.aws/docker/library/redis
+    # -- Redis tag
+    tag: 7.0.13-alpine
+    # -- Redis image pull policy
+    # @default -- `""` (defaults to global.image.imagePullPolicy)
+    imagePullPolicy: ""
 
 notifications:
   enabled: false
