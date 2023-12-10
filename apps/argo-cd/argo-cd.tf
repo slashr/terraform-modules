@@ -11,7 +11,7 @@ resource "helm_release" "argo-cd" {
   chart      = "argo-cd"
   version    = "5.51.6"
 
-  values = [templatefile("${path.module}/values.yaml",{})]
+  values = [templatefile("${path.module}/values.yaml", {})]
 
   depends_on = [
     resource.kubernetes_namespace.argo-cd
@@ -25,7 +25,7 @@ resource "helm_release" "argo-cd-apps" {
   chart      = "argocd-apps"
   version    = "1.4.1"
 
-  values = [templatefile("${path.module}/argo-cd-apps-values.yaml",{})]
+  values = [templatefile("${path.module}/argo-cd-apps-values.yaml", {})]
 
   depends_on = [
     resource.kubernetes_namespace.argo-cd
