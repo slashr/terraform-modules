@@ -61,7 +61,10 @@ server:
   ingress:
     enabled: true
     annotations:
-    # This lets cert-manager identify which Ingresses to generate a cert for
+      # Create a A record pointing to the given IP on cloudflare
+      external-dns.alpha.kubernetes.io/hostname: argo.akashnair.com
+      external-dns.alpha.kubernetes.io/target: 130.61.64.164
+      # This lets cert-manager identify which Ingresses to generate a cert for
       cert-manager.io/cluster-issuer: letsencrypt-prod
 
     # -- List of ingress hosts
