@@ -18,3 +18,17 @@ resource "helm_release" "external-dns" {
   ]
 }
 
+# Required for external-dns to allow it to set dns records on cloudflare
+resource "kubernetes_secret" "cloudflare-api-token" {
+  metadata {
+    name      = "cloudflare-api-token-secret"
+    namespace = "external-dns"
+  }
+
+  data = {
+    api-token = var.cloudflare_api_token
+  }
+  depends_on = [
+    kubernetes_namespace.external-dns
+  ]
+}
