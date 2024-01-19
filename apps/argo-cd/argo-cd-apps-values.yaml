@@ -5,7 +5,7 @@ applications:
     source:
       repoURL: https://github.com/slashr/app-manifests.git
       targetRevision: "main"
-      path: "."
+      path: "argo"
       directory:
         recurse: true
     destination:
