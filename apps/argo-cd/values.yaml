@@ -66,28 +66,14 @@ server:
       external-dns.alpha.kubernetes.io/target: 130.61.64.164
       # This lets cert-manager identify which Ingresses to generate a cert for
       cert-manager.io/cluster-issuer: letsencrypt-prod
-
-    # -- List of ingress hosts
-    ## Argo Ingress.
-    ## Hostnames must be provided if Ingress is enabled.
-    ## Secrets must be manually created in the namespace
-    hosts:
-      - "argo.akashnair.com"
-
-    # -- List of ingress paths
-    paths:
-      - /
-    pathType: Prefix
-    tls:
-      - secretName: argocd-tls
-        hosts:
-          - "argo.akashnair.com"
+    hostname: "argo.akashnair.com"
+    tls: true
 
   certificate:
     # -- Deploy a Certificate resource (requires cert-manager)
     enabled: true
     # -- The name of the Secret that will be automatically created and managed by this Certificate resource
-    secretName: argocd-tls
+    secretName: argocd-server-tls
     # -- Certificate primary domain (commonName)
     domain: argo.akashnair.com
     issuer:
