@@ -46,7 +46,7 @@ configs:
     # If disabled, this leads to endless redirect loop.
     server.insecure: true
   secret:
-    argocdServerAdminPassword: $2a$10$DgLLTi.nyUd3BUNXH0WEQOFgYbUOwU7Bpd7ukVuNPflVm4QnxEdfm
+    argocdServerAdminPassword: $2a$10$rC8YEHTQ6XGPADs2aTJxA.lQwXoYRqhxM4lRplHyisdj77NNxsiN.
   repositories:
     podinfo-helm-repo:
       url: https://stefanprodan.github.io/podinfo
